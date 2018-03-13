@@ -2,14 +2,14 @@ class App
   def self.run(output = STDOUT, input = STDIN)
     output.print("Potato: $10\nExtra potato: $14\n")
 
-    orders = []
+    order = Order.new
 
     while true
-      order = input.gets.chomp
-      break if order == 'Done'
-      orders << order
+      item = input.gets.chomp
+      break if item == 'Done'
+      order.add(item)
     end
 
-    output.print("Your order:\n#{orders.join("\n")}")
+    output.print("Your order:\n#{order}")
   end
 end
