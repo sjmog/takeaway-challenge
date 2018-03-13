@@ -23,4 +23,12 @@ RSpec.describe 'Selecting a dish' do
 
     App.run(mock_output, mock_input)
   end
+
+  it 'I can add multiple items to an order' do
+    mock_user_typing('Potato', 'Potato', 'Done')
+
+    expect(mock_output).to receive(:print).with("Your order:\nPotato (2)")
+
+    App.run(mock_output, mock_input)
+  end
 end

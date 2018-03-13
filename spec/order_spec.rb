@@ -17,5 +17,10 @@ RSpec.describe Order do
       order = Order.new(['Potato', 'Extra potato'])
       expect(order.to_s).to eq "Potato\nExtra potato"
     end
+
+    it 'displays the quantity of items next to their names' do
+      order = Order.new(['Potato', 'Potato'])
+      expect(order.to_s).to eq "Potato (2)"
+    end
   end
 end

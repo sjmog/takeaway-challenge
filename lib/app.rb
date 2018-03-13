@@ -1,3 +1,6 @@
+require_relative './dishes'
+require_relative './order'
+
 class App
   def self.run(output = STDOUT, input = STDIN, dishes = Dishes.new)
     output.print("#{dishes}\n")
