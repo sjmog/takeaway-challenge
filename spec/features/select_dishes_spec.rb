@@ -23,10 +23,4 @@ RSpec.describe 'Selecting a dish' do
 
     App.run(mock_output, mock_input)
   end
-
-  private
-
-  def mock_user_typing(*args)
-    allow(mock_input).to receive_message_chain(:gets, :chomp).and_return(*args)
-  end
 end

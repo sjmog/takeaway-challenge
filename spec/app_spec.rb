@@ -22,10 +22,4 @@ RSpec.describe App do
       App.run(mock_output, mock_input)
     end
   end
-
-  private
-
-  def mock_user_typing(*args)
-    allow(mock_input).to receive_message_chain(:gets, :chomp).and_return(*args)
-  end
 end
