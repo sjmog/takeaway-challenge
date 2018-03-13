@@ -1,10 +1,5 @@
 class App
-  DEFAULT_DISHES = [ 
-    { name: 'Potato', price: '$10' }, 
-    { name: 'Extra potato', price: '$14' } 
-  ]
-
-  def self.run(output = STDOUT, input = STDIN, dishes = DEFAULT_DISHES)
+  def self.run(output = STDOUT, input = STDIN, dishes = Dishes::DEFAULT)
     output.print(dishes.map { |dish| "#{dish[:name]}: #{dish[:price]}" }.join("\n") + "\n")
 
     order = Order.new
