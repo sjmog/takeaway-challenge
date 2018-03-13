@@ -2,11 +2,12 @@ require 'app'
 
 RSpec.describe App do
   describe '.run' do
+    let(:mock_output) { double(print: nil) }
+    let(:mock_input)  { double }
+
     it 'runs the app' do
-      mock_output = double(print: nil)
-      mock_input = double
-      allow(mock_input).to receive_message_chain(:gets, :chomp).and_return 'Done'
       dishes = "Potato: $10\nExtra potato: $14\n"
+      mock_user_typing('Done')
 
       expect(mock_output).to receive(:print).with(dishes)
 
@@ -14,13 +15,17 @@ RSpec.describe App do
     end
 
     it 'prints orders' do
-      mock_output = double(print: nil)
-      mock_input = double
-      allow(mock_input).to receive_message_chain(:gets, :chomp).and_return 'Potato', 'Done'
+      mock_user_typing('Potato', 'Done')
 
       expect(mock_output).to receive(:print).with("Your order:\nPotato")
 
       App.run(mock_output, mock_input)
     end
+  end
+
+  private
+
+  def mock_user_typing(*args)
+    allow(mock_input).to receive_message_chain(:gets, :chomp).and_return(*args)
   end
 end
