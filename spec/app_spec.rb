@@ -3,10 +3,11 @@ require 'app'
 RSpec.describe App do
   describe '.run' do
     it 'runs the app' do
+      mock_output = double(puts: nil)
       dishes = "Potato: $10\nExtra potato: $14\n"
-      expect(STDOUT).to receive(:puts).with(dishes)
+      expect(mock_output).to receive(:puts).with(dishes)
 
-      App.run
+      App.run(mock_output)
     end
   end
 end
