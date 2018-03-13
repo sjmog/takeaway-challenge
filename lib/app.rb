@@ -1,6 +1,6 @@
 class App
-  def self.run(output = STDOUT, input = STDIN, dishes = Dishes::DEFAULT)
-    output.print(dishes.map { |dish| "#{dish[:name]}: #{dish[:price]}" }.join("\n") + "\n")
+  def self.run(output = STDOUT, input = STDIN, dishes = Dishes.new)
+    output.print("#{dishes}\n")
 
     order = Order.new
 

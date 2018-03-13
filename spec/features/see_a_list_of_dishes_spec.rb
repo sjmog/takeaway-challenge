@@ -9,10 +9,10 @@ RSpec.describe 'Seeing a list of dishes' do
   let(:mock_input)  { double }
 
   it 'I can ask for a list of dishes with prices' do
-    dishes = [
+    dishes = Dishes.new([
       { name: 'Hunk o cheese', price: '$12' },
       { name: 'Wine', price: '$5' }
-    ]
+    ])
     mock_user_typing('Done')
 
     expect(mock_output).to receive(:print).with("Hunk o cheese: $12\nWine: $5\n")

@@ -10,4 +10,11 @@ RSpec.describe Dishes do
       expect(Dishes::DEFAULT).to eq expected_dishes
     end
   end
+
+  describe '#to_s' do
+    it 'prints a list of dishes with prices' do
+      dishes = Dishes.new
+      expect(dishes.to_s).to eq "Potato: $10\nExtra potato: $14"
+    end
+  end
 end
