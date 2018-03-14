@@ -2,10 +2,8 @@ require_relative './menu'
 require_relative './order'
 
 class App
-  def self.run(output = STDOUT, input = STDIN, menu = Menu.new)
+  def self.run(output = STDOUT, input = STDIN, menu = Menu.new, order = Order.new)
     output.print("#{menu}\n")
-
-    order = Order.new
 
     while true
       item = input.gets.chomp
