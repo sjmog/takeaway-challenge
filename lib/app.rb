@@ -1,16 +1,16 @@
-require_relative './dishes'
+require_relative './menu'
 require_relative './order'
 
 class App
-  def self.run(output = STDOUT, input = STDIN, dishes = Dishes.new)
-    output.print("#{dishes}\n")
+  def self.run(output = STDOUT, input = STDIN, menu = Menu.new)
+    output.print("#{menu}\n")
 
     order = Order.new
 
     while true
       item = input.gets.chomp
       break if item == 'Done'
-      if dishes.include?(item)
+      if menu.include?(item)
         order.add(item)
       else
         output.print("#{item} is not on the menu.")

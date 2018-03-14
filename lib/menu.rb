@@ -1,4 +1,4 @@
-class Dishes
+class Menu
   DEFAULT = [ 
     { name: 'Potato', price: '$10' }, 
     { name: 'Extra potato', price: '$14' } 
