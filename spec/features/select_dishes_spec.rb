@@ -31,4 +31,13 @@ RSpec.describe 'Selecting a dish' do
 
     App.run(mock_output, mock_input)
   end
+
+  it 'I cannot add an item to the order unless it is on the menu' do
+    mock_user_typing('A whole rabbit', 'Done')
+
+    expect(mock_output).to receive(:print).with("A whole rabbit is not on the menu.")
+    expect(mock_output).not_to receive(:print).with("Your order:\nA whole rabbit")
+
+    App.run(mock_output, mock_input)
+  end
 end

@@ -17,4 +17,20 @@ RSpec.describe Dishes do
       expect(dishes.to_s).to eq "Potato: $10\nExtra potato: $14"
     end
   end
+
+  describe '#include?' do
+    it 'is true if an item with that name is in the list' do
+      menu_with_potato = [{ name: 'Potato' }]
+      dishes = Dishes.new(menu_with_potato)
+
+      expect(dishes.include? 'Potato').to be true
+    end
+
+    it 'is false otherwise' do
+      empty_menu = []
+      dishes = Dishes.new(empty_menu)
+
+      expect(dishes.include? 'Potato').to be false
+    end
+  end
 end

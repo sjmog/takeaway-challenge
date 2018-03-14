@@ -10,7 +10,11 @@ class App
     while true
       item = input.gets.chomp
       break if item == 'Done'
-      order.add(item)
+      if dishes.include?(item)
+        order.add(item)
+      else
+        output.print("#{item} is not on the menu.")
+      end
     end
 
     output.print("Your order:\n#{order}")

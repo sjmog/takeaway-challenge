@@ -11,4 +11,8 @@ class Dishes
   def to_s
     @dishes.map { |dish| "#{dish[:name]}: #{dish[:price]}" }.join("\n")
   end
+
+  def include?(dish_name)
+    @dishes.map { |dish| dish[:name] }.include? dish_name
+  end
 end
